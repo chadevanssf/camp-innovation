@@ -14,6 +14,8 @@ block content
         div
           p.slds-text-heading_small.slds-p-vertical_xx-small.slds-text-align_center #{w.name}
           p.slds-p-vertical_small #{w.description}
+          if (w.imageURL)
+            img(src=w.imageURL alt='thumbnail')
         .slds-grid.slds-grid_align-space
           if (w.launchURL)
             a.slds-button.slds-button_brand(href=w.launchURL target='_blank') Start Playground
