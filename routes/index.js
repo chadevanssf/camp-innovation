@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 router.get('/:mix', function (req, res, next) {
   if (workshops[req.params.mix]){
     // default page
-    let page = 'index';
+    let page = 'demos';
 
     // special cases for adoption pages, which have different treatment
     if (req.params.mix === 'adoption' || req.params.mix === 'df18adoption' || req.params.mix === 'tdx19adoption'){
