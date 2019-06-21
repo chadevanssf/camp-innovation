@@ -9,7 +9,14 @@ const DEFAULT_HOME_LAYOUT = process.env.DEFAULT_HOME_LAYOUT || "index";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render(DEFAULT_HOME_LAYOUT, { workshops: workshops.getDefs(workshops[DEFAULT_HOME])});
+  let page = DEFAULT_HOME_LAYOUT;
+
+  let pagename = DEFAULT_HOME + "_layout";
+  if (workshops.hasOwnProperty(pagename)) {
+    page = workshops[pagename];
+  }
+
+  res.render(page, { workshops: workshops.getDefs(workshops[DEFAULT_HOME])});
 });
 
 router.get('/:mix', function (req, res, next) {
@@ -17,9 +24,9 @@ router.get('/:mix', function (req, res, next) {
     // default page
     let page = DEFAULT_HOME_LAYOUT;
 
-    // special cases for adoption pages, which have different treatment
-    if (req.params.mix === 'adoption' || req.params.mix === 'df18adoption' || req.params.mix === 'tdx19adoption'){
-      page = 'adoption';
+    let pagename = req.params.mix + "_layout";
+    if (workshops.hasOwnProperty(pagename)) {
+      page = workshops[pagename];
     }
 
     res.render(page, { workshops: workshops.getDefs(workshops[req.params.mix]) });

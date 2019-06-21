@@ -1,8 +1,12 @@
 {
-  "name": "camp-innovation",
+  "name": "platform-workshops",
   "scripts": {
   },
   "env": {
+    "DEFAULT_HOME": {
+      "description": "Default type for the root",
+      "value": "main"
+    }
   },
   "formation": {
     "web": {
