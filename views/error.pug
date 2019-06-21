@@ -4,3 +4,12 @@ block content
   h1= message
   h2= error.status
   pre #{error.stack}
+
+
+block content
+  .slds-p-vertical_small.header
+    img.slds-m-vertical_small(src='../images/LightningPlatformLogo.png' alt='lightning platform logo' width='200')
+    p.slds-text-heading_large.uppercase #{message}
+    p.slds-text-heading_medium
+      b #{error.status}
+    pre #{error.stack}
