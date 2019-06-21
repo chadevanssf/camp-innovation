@@ -5,7 +5,7 @@ var router = express.Router();
 
 // use the environment var from Heroku if set
 const DEFAULT_HOME = process.env.DEFAULT_HOME || "main";
-const DEFAULT_HOME_LAYOUT = process.env.DEFAULT_HOME_LAYOUT || "index";
+const DEFAULT_HOME_LAYOUT = "index";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
