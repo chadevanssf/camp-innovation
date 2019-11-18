@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .slds-p-vertical_small.header
+    img.slds-m-vertical_small(src='../images/LightningPlatformLogo.png' alt='lightning platform logo' width='200')
+    p.slds-text-heading_large.uppercase Camp Innovation
+    p.slds-text-heading_medium
+      b Make Innovation Happen
+
+
+  .slds-grid.slds-wrap.slds-grid_align-space.slds-p-around_medium.content.slds-grid_vertical-stretch.main
+    each w in workshops
+      .slds-size_1-of-4.slds-box.slds-p-horizonal_medium.slds-m-bottom_xx-large.slds-m-horizontal_medium.tile
+        div
+          p.slds-text-heading_small.slds-p-vertical_xx-small.slds-text-align_center #{w.name}
+          if (w.imageURL)
+            img(src=w.imageURL alt='thumbnail')
+          p.slds-p-vertical_small #{w.description}
+        .slds-grid.slds-grid_align-space
+          if (w.launchURL)
+            a.slds-button.slds-button_brand(href=w.launchURL target='_blank') Start Playground
+          if (w.docsURL)
+            a.slds-button.slds-button_neutral(href=w.docsURL target='_blank') Open Guide
+
